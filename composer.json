@@ -1,0 +1,69 @@
+{
+    "name": "ictsolutions/codeigniter-freeradius",
+    "description": "CodeIgniter4 FreeRadius wrapper library.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "codeigniter",
+        "codeigniter4",
+        "FreeRadius"
+    ],
+    "authors": [
+        {
+            "name": "jozefrebjak",
+            "homepage": "https://github.com/jozefrebjak",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "codeigniter4/settings": "^2.2.0"
+    },
+    "require-dev": {
+        "codeigniter4/devkit": "^1.2.1",
+        "codeigniter4/framework": "^4.4.6",
+        "ergebnis/composer-normalize": "^2.42",
+        "qossmic/deptrac-shim": "^1.0.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "IctSolutions\\CodeIgniterFreeRadius\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests",
+            "Tests\\Support\\": "tests/_support"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "phpstan/extension-installer": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyze": [
+            "phpstan analyze",
+            "rector process --dry-run"
+        ],
+        "ci": [
+            "Composer\\Config::disableProcessTimeout",
+            "@composer normalize --dry-run",
+            "@test",
+            "@style",
+            "@analyze"
+        ],
+        "cs": "php-cs-fixer fix --ansi --verbose --dry-run --diff",
+        "cs-fix": "php-cs-fixer fix --ansi --verbose --diff",
+        "rector": "rector process --dry-run",
+        "rector-fix": "rector process",
+        "sa": "@analyze",
+        "style": "@cs-fix",
+        "test": "phpunit",
+        "testdox": "phpunit --testdox"
+    }
+}
