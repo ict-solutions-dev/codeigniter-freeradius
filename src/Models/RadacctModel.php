@@ -14,7 +14,6 @@ class RadacctModel extends BaseModel
 
     protected $primaryKey    = 'radacctid';
     protected $returnType    = Radacct::class;
-
     protected $allowedFields = [
         'acctsessionid',
         'acctuniqueid',
