@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace IctSolutions\CodeIgniterFreeRadius\Models;
 
+use IctSolutions\CodeIgniterFreeRadius\Entities\Radcheck;
 use IctSolutions\CodeIgniterFreeRadius\Traits\Sharable;
 
 class RadcheckModel extends BaseModel
@@ -11,7 +12,7 @@ class RadcheckModel extends BaseModel
     use Sharable;
 
     protected $primaryKey    = 'id';
-    protected $returnType    = 'object';
+    protected $returnType    = Radcheck::class;
     protected $allowedFields = [
         'username',
         'attribute',

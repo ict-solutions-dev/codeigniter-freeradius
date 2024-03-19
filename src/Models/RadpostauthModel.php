@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace IctSolutions\CodeIgniterFreeRadius\Models;
 
-use IctSolutions\CodeIgniterFreeRadius\Entities\Radusergroup;
+use IctSolutions\CodeIgniterFreeRadius\Entities\Radpostauth;
 use IctSolutions\CodeIgniterFreeRadius\Traits\Sharable;
 
-class RadusergroupModel extends BaseModel
+class RadpostauthModel extends BaseModel
 {
     use Sharable;
 
     protected $primaryKey    = 'id';
-    protected $returnType    = Radusergroup::class;
+    protected $returnType    = Radpostauth::class;
     protected $allowedFields = [
         'username',
-        'groupname',
-        'priority',
+        'pass',
+        'reply',
+        'authdate',
     ];
     protected $useTimestamps      = false;
     protected $validationRules    = [];
@@ -27,6 +28,6 @@ class RadusergroupModel extends BaseModel
     {
         parent::initialize();
 
-        $this->table = $this->tables['radusergroup'];
+        $this->table = $this->tables['radpostauth'];
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace IctSolutions\CodeIgniterFreeRadius\Models;
 
+use IctSolutions\CodeIgniterFreeRadius\Entities\Radreply;
 use IctSolutions\CodeIgniterFreeRadius\Traits\Sharable;
 
 class RadreplyModel extends BaseModel
@@ -11,7 +12,7 @@ class RadreplyModel extends BaseModel
     use Sharable;
 
     protected $primaryKey    = 'id';
-    protected $returnType    = 'object';
+    protected $returnType    = Radreply::class;
     protected $allowedFields = [
         'username',
         'attribute',
