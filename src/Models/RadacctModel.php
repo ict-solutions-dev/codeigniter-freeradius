@@ -7,7 +7,6 @@ namespace IctSolutions\CodeIgniterFreeRadius\Models;
 use IctSolutions\CodeIgniterFreeRadius\Entities\Radacct;
 use IctSolutions\CodeIgniterFreeRadius\Traits\Sharable;
 
-
 class RadacctModel extends BaseModel
 {
     use Sharable;
