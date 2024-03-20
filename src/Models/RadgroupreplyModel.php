@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace IctSolutions\CodeIgniterFreeRadius\Models;
 
+use IctSolutions\CodeIgniterFreeRadius\Entities\Radgroupreply;
+
 class RadgroupreplyModel extends BaseModel
 {
     protected $primaryKey    = 'id';
-    protected $returnType    = 'object';
+    protected $returnType    = Radgroupreply::class;
     protected $allowedFields = [
         'groupname',
         'attribute',
