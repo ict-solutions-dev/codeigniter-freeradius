@@ -3,6 +3,7 @@
 namespace IctSolutions\CodeIgniterFreeRadius\Entities;
 
 use CodeIgniter\Entity\Entity;
+use IctSolutions\CodeIgniterFreeRadius\Enums\RadpostauthReply;
 
 /**
  * Class Radpostauth
@@ -25,4 +26,9 @@ class Radpostauth extends Entity
         'reply'    => 'string',
         'authdate' => 'string',
     ];
+
+    public function getReply(): string
+    {
+        return RadpostauthReply::from($this->attributes['reply'])->toString();
+    }
 }
