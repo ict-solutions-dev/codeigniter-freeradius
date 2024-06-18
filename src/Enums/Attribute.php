@@ -58,4 +58,18 @@ enum Attribute: string
      * Cisco-Framed-Route specifies routes to be configured in the user's routing table.
      */
     case CiscoFramedRoute = 'Cisco-Framed-Route';
+
+    /**
+     * Returns an array of dropdown values.
+     */
+    public static function getDropdownValues(): array
+    {
+        $dropdownValues = [];
+
+        foreach (self::cases() as $case) {
+            $dropdownValues[$case->value] = $case->value;
+        }
+
+        return $dropdownValues;
+    }
 }
