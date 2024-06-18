@@ -5,6 +5,20 @@ namespace IctSolutions\CodeIgniterFreeRadius\Enums;
 enum Attribute: string
 {
     /**
+     * Returns an array of dropdown values.
+     */
+    public static function getDropdownValues(): array
+    {
+        $dropdownValues = [];
+
+        foreach (self::cases() as $case) {
+            $dropdownValues[$case->value] = $case->value;
+        }
+
+        return $dropdownValues;
+    }
+
+    /**
      * Cleartext-Password is used to specify a user's password. This password is not encrypted and therefore should be protected.
      */
     case CleartextPassword = 'Cleartext-Password';
