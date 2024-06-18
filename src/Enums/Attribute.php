@@ -17,6 +17,7 @@ enum Attribute: string
 
         return $dropdownValues;
     }
+
     /**
      * Cleartext-Password is used to specify a user's password. This password is not encrypted and therefore should be protected.
      */

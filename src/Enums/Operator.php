@@ -14,6 +14,7 @@ enum Operator: string
 
         return $dropdownValues;
     }
+
     /**
      * Sets the value of an attribute, only if there is no other item of the same attribute.
      * Not allowed as a check item for RADIUS protocol attributes.
