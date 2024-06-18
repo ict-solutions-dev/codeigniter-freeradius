@@ -4,6 +4,16 @@ namespace IctSolutions\CodeIgniterFreeRadius\Enums;
 
 enum Operator: string
 {
+    public static function getDropdownValues(): array
+    {
+        $dropdownValues = [];
+
+        foreach (self::cases() as $case) {
+            $dropdownValues[$case->value] = $case->value;
+        }
+
+        return $dropdownValues;
+    }
     /**
      * Sets the value of an attribute, only if there is no other item of the same attribute.
      * Not allowed as a check item for RADIUS protocol attributes.
@@ -71,15 +81,4 @@ enum Operator: string
      * Matches if the request does not contain the named attribute, no matter what the value is.
      */
     case NotExists = '!*';
-
-    public static function getDropdownValues(): array
-    {
-        $dropdownValues = [];
-
-        foreach (self::cases() as $case) {
-            $dropdownValues[$case->value] = $case->value;
-        }
-
-        return $dropdownValues;
-    }
 }
