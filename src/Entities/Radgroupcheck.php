@@ -11,7 +11,7 @@ class Radgroupcheck extends Entity
      * @var array<string, string>
      */
     protected $casts = [
-        'id'       => 'int',
+        'id'        => 'int',
         'groupname' => 'string',
         'attribute' => 'string',
         'op'        => 'string',
