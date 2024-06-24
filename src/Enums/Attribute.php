@@ -21,7 +21,18 @@ enum Attribute: string
     public function toDescription(): string
     {
         return match ($this) {
-            self::nasIpAddress => lang('FreeRadius.attributeDescription.nasIpAddress'),
+            self::nasIpAddress      => lang('FreeRadius.attributeDescription.nasIpAddress'),
+            self::CleartextPassword => lang('FreeRadius.attributeDescription.cleartextPassword'),
+            self::FallThrough       => lang('FreeRadius.attributeDescription.fallThrough'),
+            self::SimultaneousUse   => lang('FreeRadius.attributeDescription.simultaneousUse'),
+            self::ServiceType       => lang('FreeRadius.attributeDescription.serviceType'),
+            self::FramedIPAddress   => lang('FreeRadius.attributeDescription.framedIPAddress'),
+            self::FramedIPNetmask   => lang('FreeRadius.attributeDescription.framedIPNetmask'),
+            self::FramedProtocol    => lang('FreeRadius.attributeDescription.framedProtocol'),
+            self::FramedMTU         => lang('FreeRadius.attributeDescription.framedMTU'),
+            self::CiscoAVPair       => lang('FreeRadius.attributeDescription.ciscoAVPair'),
+            self::CiscoNASPort      => lang('FreeRadius.attributeDescription.ciscoNASPort'),
+            self::CiscoFramedRoute  => lang('FreeRadius.attributeDescription.ciscoFramedRoute'),
         };
     }
 
