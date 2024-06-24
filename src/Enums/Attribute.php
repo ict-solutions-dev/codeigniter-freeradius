@@ -18,6 +18,13 @@ enum Attribute: string
         return $dropdownValues;
     }
 
+    public function toDescription(): string
+    {
+        return match ($this) {
+            self::nasIpAddress => lang('FreeRadius.attributeDescription.nasIpAddress'),
+        };
+    }
+
     /**
      * Cleartext-Password is used to specify a user's password. This password is not encrypted and therefore should be protected.
      */
@@ -72,4 +79,9 @@ enum Attribute: string
      * Cisco-Framed-Route specifies routes to be configured in the user's routing table.
      */
     case CiscoFramedRoute = 'Cisco-Framed-Route';
+
+    /**
+     * NAS-IP-Address indicates the identifying IP Address of the NAS which is requesting authentication of the user, and SHOULD be unique to the NAS within the scope of the RADIUS server. NAS-IP-Address is only used in Access-Request packets. Either NAS-IP-Address or NAS-Identifier MUST be present in an Access-Request packet. Note that NAS-IP-Address MUST NOT be used to select the shared secret used to authenticate the request. The source IP address of the Access-Request packet MUST be used to select the shared secret.
+     */
+    case nasIpAddress = 'NAS-IP-Address';
 }
