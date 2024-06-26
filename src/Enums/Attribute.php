@@ -21,7 +21,7 @@ enum Attribute: string
     public function toDescription(): string
     {
         return match ($this) {
-            self::nasIpAddress      => lang('FreeRadius.attributeDescription.nasIpAddress'),
+            self::NasIpAddress      => lang('FreeRadius.attributeDescription.nasIpAddress'),
             self::CleartextPassword => lang('FreeRadius.attributeDescription.cleartextPassword'),
             self::FallThrough       => lang('FreeRadius.attributeDescription.fallThrough'),
             self::SimultaneousUse   => lang('FreeRadius.attributeDescription.simultaneousUse'),
@@ -88,59 +88,74 @@ enum Attribute: string
 
     /**
      * Fall-Through is used to enable or disable "fall-through" in the event that other checks do not match any entries in the check items.
+     * More information: https://www.gnu.org/software/radius/manual/html_node/Fall_002dThrough.html#SEC353
      */
     case FallThrough = 'Fall-Through';
 
     /**
      * Simultaneous-Use is used to limit the number of simultaneous logins from any one user.
+     * More information: https://www.gnu.org/software/radius/manual/html_node/Simultaneous_002dUse.html#SEC369
      */
     case SimultaneousUse = 'Simultaneous-Use';
 
     /**
      * Service-Type is used by the NAS to determine the nature of the service requested or provided.
+     * More information: https://www.gnu.org/software/radius/manual/html_node/Service_002dType.html#SEC321
      */
     case ServiceType = 'Service-Type';
 
     /**
      * Framed-IP-Address is used to specify the IP address to be configured for the user's network interface.
+     * More information: https://www.gnu.org/software/radius/manual/html_node/Framed_002dIP_002dAddress.html#SEC309
      */
     case FramedIPAddress = 'Framed-IP-Address';
 
     /**
      * Framed-IP-Netmask is used to specify the subnet mask to be configured for the user's network interface.
+     * More information: https://www.gnu.org/software/radius/manual/html_node/Framed_002dIP_002dNetmask.html#SEC310
      */
     case FramedIPNetmask = 'Framed-IP-Netmask';
 
     /**
      * Framed-Protocol is used to specify the protocol to be configured for the user's network interface.
+     * More information: https://www.gnu.org/software/radius/manual/html_node/Framed_002dProtocol.html#SEC312
      */
     case FramedProtocol = 'Framed-Protocol';
 
     /**
      * Framed-MTU is used to specify the Maximum Transmission Unit(MTU) size for the user's network interface.
+     * More information: https://www.gnu.org/software/radius/manual/html_node/Framed_002dMTU.html#SEC311
      */
     case FramedMTU = 'Framed-MTU';
 
     /**
      * Cisco-AVPair allows Vendor-Specific information to be carried in RADIUS packets.
+     * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html 
      */
     case CiscoAVPair = 'Cisco-AVPair';
 
     /**
      * Cisco-NAS-Port provides a way to identify the physical port on the NAS which is handling the user session.
+     * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html
      */
     case CiscoNASPort = 'Cisco-NAS-Port';
 
     /**
      * Cisco-Framed-Route specifies routes to be configured in the user's routing table.
+     * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html
      */
     case CiscoFramedRoute = 'Cisco-Framed-Route';
+    
+    /**
+     * Cisco-Service-Info  
+     * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html
+     */
+    case CiscoServiceInfo = 'Cisco-Service-Info';
 
     /**
      * NAS-IP-Address indicates the identifying IP Address of the NAS which is requesting authentication of the user, and SHOULD be unique to the NAS within the scope of the RADIUS server. NAS-IP-Address is only used in Access-Request packets. Either NAS-IP-Address or NAS-Identifier MUST be present in an Access-Request packet. Note that NAS-IP-Address MUST NOT be used to select the shared secret used to authenticate the request. The source IP address of the Access-Request packet MUST be used to select the shared secret.
+     * More information: 
      */
-    case nasIpAddress = 'NAS-IP-Address';
+    case NasIpAddress = 'NAS-IP-Address';
 
-    
-    case CiscoServiceInfo = 'Cisco-Service-Info';
 }
