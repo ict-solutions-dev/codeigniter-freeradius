@@ -16,9 +16,9 @@ return [
         'FramedProtocol'    => 'This attribute indicates the framing to be used for framed access. It may be used in both Access-Request and Access-Accept packets. ',
         'FramedMTU'         => 'This attribute indicates the maximum transmission unit to be configured for the user, when it is not negotiated by some other means (such as PPP). It is only used in Access-Accept packets.',
 
-        'CiscoAVPair'       => 'Cisco-AVPair allows Vendor-Specific information to be carried in RADIUS packets.',
-        'CiscoNASPort'      => 'Indicates the physical port number of the network access server that is authenticating the user. The NAS-Port value (32 bits) consists of one or two 16-bit values (depending on the setting of the radius-server extended-portnames command). Each 16-bit number should be viewed as a 5-digit decimal integer.',
-        'CiscoFramedRoute'  => 'Provides routing information to be configured for the user on this network access server. The RADIUS RFC format (net/bits [router [metric]]) and the old style dotted mask (net mask [router [metric]]) are supported. If the device field is omitted or 0, the peer IP address is used. Metrics are currently ignored. This attribute is access-request packets.',
-        'CiscoServiceInfo'  => 'Cisco-Service-Info provides information about the service parameters for Cisco devices.'
-    ]
+        'CiscoAVPair'      => 'Cisco-AVPair allows Vendor-Specific information to be carried in RADIUS packets.',
+        'CiscoNASPort'     => 'Indicates the physical port number of the network access server that is authenticating the user. The NAS-Port value (32 bits) consists of one or two 16-bit values (depending on the setting of the radius-server extended-portnames command). Each 16-bit number should be viewed as a 5-digit decimal integer.',
+        'CiscoFramedRoute' => 'Provides routing information to be configured for the user on this network access server. The RADIUS RFC format (net/bits [router [metric]]) and the old style dotted mask (net mask [router [metric]]) are supported. If the device field is omitted or 0, the peer IP address is used. Metrics are currently ignored. This attribute is access-request packets.',
+        'CiscoServiceInfo' => 'Cisco-Service-Info provides information about the service parameters for Cisco devices.',
+    ],
 ];

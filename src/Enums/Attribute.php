@@ -36,13 +36,13 @@ enum Attribute: string
         };
     }
 
-    public static function getValues(): array{
-        return array_map(function($attr) {
-            return $attr->value;
-        }, Attribute::cases());;
+    public static function getValues(): array
+    {
+        return array_map(static fn ($attr) => $attr->value, Attribute::cases());
     }
 
-    public static function getServiceTypes(): array{
+    public static function getServiceTypes(): array
+    {
         return [
             'Login',
             'Framed',
@@ -79,7 +79,6 @@ enum Attribute: string
     {
         return 65535;
     }
-
 
     /**
      * Cleartext-Password is used to specify a user's password. This password is not encrypted and therefore should be protected.
@@ -130,7 +129,7 @@ enum Attribute: string
 
     /**
      * Cisco-AVPair allows Vendor-Specific information to be carried in RADIUS packets.
-     * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html 
+     * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html
      */
     case CiscoAVPair = 'Cisco-AVPair';
 
@@ -145,17 +144,16 @@ enum Attribute: string
      * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html
      */
     case CiscoFramedRoute = 'Cisco-Framed-Route';
-    
+
     /**
-     * Cisco-Service-Info  
+     * Cisco-Service-Info
      * More information: https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/sec_usr_radatt/configuration/xe-16/sec-usr-radatt-xe-16-book/sec-rad-ov-ietf-attr.html
      */
     case CiscoServiceInfo = 'Cisco-Service-Info';
 
     /**
      * NAS-IP-Address indicates the identifying IP Address of the NAS which is requesting authentication of the user, and SHOULD be unique to the NAS within the scope of the RADIUS server. NAS-IP-Address is only used in Access-Request packets. Either NAS-IP-Address or NAS-Identifier MUST be present in an Access-Request packet. Note that NAS-IP-Address MUST NOT be used to select the shared secret used to authenticate the request. The source IP address of the Access-Request packet MUST be used to select the shared secret.
-     * More information: 
+     * More information:
      */
     case NasIpAddress = 'NAS-IP-Address';
-
 }

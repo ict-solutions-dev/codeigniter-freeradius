@@ -20,7 +20,7 @@ enum Operator: string
         $values = [];
 
         foreach (self::cases() as $case) {
-            array_push($values,  $case->value);
+            $values[] = $case->value;
         }
 
         return $values;
