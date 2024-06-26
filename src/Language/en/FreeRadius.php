@@ -5,8 +5,10 @@ return [
         'accessAccept' => 'Access-Accept',
         'accessReject' => 'Access-Reject',
     ],
-    'atrributeDescription' => [
+    'attributeDescription' => [
         'nasIpAddress'      => 'This Attribute indicates the identifying IP Address of the NAS which is requesting authentication of the user, and SHOULD be unique to the NAS within the scope of the RADIUS server. NAS-IP-Address is only used in Access-Request packets.  Either NAS-IP- Address or NAS-Identifier MUST be present in an Access-Request packet. Note that NAS-IP-Address MUST NOT be used to select the shared secret used to authenticate the request.  The source IP address of the Access-Request packet MUST be used to select the shared secret.',
+        'nasPortType'       => 'TODO', // TODO find attribute description
+        'nasPortId'         => 'TODO', // TODO find attribute description
         'cleartextPassword' => '',
         'fallThrough'       => 'The Fall-Through attribute should be used in the reply list. If its value is set to Yes in a particular record, that tells Radius to continue looking up other records even when the record at hand matches the request. It can be used to provide default values for several profiles.',
         'simultaneousUse'   => 'This attribute specifies the maximum number of simultaneous logins a given user is permitted to have. When the user is logged in this number of times, any further attempts to log in are rejected. ',
@@ -20,5 +22,27 @@ return [
         'ciscoNASPort'     => 'Indicates the physical port number of the network access server that is authenticating the user. The NAS-Port value (32 bits) consists of one or two 16-bit values (depending on the setting of the radius-server extended-portnames command). Each 16-bit number should be viewed as a 5-digit decimal integer.',
         'ciscoFramedRoute' => 'Provides routing information to be configured for the user on this network access server. The RADIUS RFC format (net/bits [router [metric]]) and the old style dotted mask (net mask [router [metric]]) are supported. If the device field is omitted or 0, the peer IP address is used. Metrics are currently ignored. This attribute is access-request packets.',
         'ciscoServiceInfo' => 'Cisco-Service-Info provides information about the service parameters for Cisco devices.',
+
+        'Acct-UniqueId'          => 'TODO', // TODO find attribute description
+        'Acct-Interval'          => 'TODO', // TODO find attribute description
+        'Acct-StopTime'          => 'TODO', // TODO find attribute description
+        'Acct-UpdateTime'        => 'TODO', // TODO find attribute description
+        'Acct-StartTime'         => 'TODO', // TODO find attribute description
+        'Acct-Authentic'         => 'This attribute MAY be included in an Accounting-Request to indicate how the user was authenticated, whether by RADIUS, the NAS itself, or another remote authentication protocol.  Users who are delivered service without being authenticated SHOULD NOT generate Accounting records.',
+        'Acct-InputOctets'       => 'This attribute indicates how many octets have been received from the port over the course of this service being provided, and can only be present in Accounting-Request records where the Acct-Status-Type is set to Stop.',
+        'Acct-InputPackets'      => 'This attribute indicates how many packets have been received from the port over the course of this service being provided to a Framed User, and can only be present in Accounting-Request records where the Acct-Status-Type is set to Stop.',
+        'Acct-InterimInterval'   => 'This attribute indicates the number of seconds between each interim update in seconds  for this specific session. This value can only appear in the Access-Accept message.',
+        'Acct-LinkCount'         => 'This attribute gives the count of links which are known to have been in a given multilink session at the time the accounting record is generated.  The NAS MAY include the Acct-Link-Count attribute in any Accounting-Request which might have multiple links.',
+        'Acct-MultiSessionId'    => 'This attribute is a unique Accounting ID to make it easy to link together multiple related sessions in a log file.  Each session linked together would have a unique Acct-Session-Id but the same Acct-Multi-Session-Id.  It is strongly recommended that the Acct-Multi-Session-Id contain UTF-8 encoded 10646 [7] characters.',
+        'Acct-OutputGigawords'   => '',
+        'Acct-OutputOctets'      => 'This attribute indicates how many octets have been sent to the port in the course of delivering this service, and can only be present in Accounting-Request records where the Acct-Status-Type is set to Stop.',
+        'Acct-OutputPackets'     => 'This attribute indicates how many packets have been sent to the port in the course of delivering this service to a Framed User, and can only be present in Accounting-Request records where the Acct-Status-Type is set to Stop.',
+        'Acct-SessionId'         => 'This attribute is a unique Accounting ID to make it easy to match start and stop records in a log file.  The start and stop records for a given session MUST have the same Acct-Session-Id.  An Accounting-Request packet MUST have an Acct-Session-Id.  An Access-Request packet MAY have an Acct-Session-Id; if it does, then the NAS MUST use the same Acct-Session-Id in the Accounting-Request packets for that session.',
+        'Acct-SessionTime'       => 'This attribute indicates how many seconds the user has received service for, and can only be present in Accounting-Request records where the Acct-Status-Type is set to Stop.',
+        'Acct-StatusType'        => 'This attribute indicates whether this Accounting-Request marks the beginning of the user service (Start) or the end (Stop). It MAY be used by the client to mark the start of accounting (for example, upon booting) by specifying Accounting-On and to mark the end of accounting (for example, just before a scheduled reboot) by specifying Accounting-Off.',
+        'Acct-TerminateCause'    => 'This attribute indicates how the session was terminated, and can only be present in Accounting-Request records where the Acct-Status-Type is set to Stop.',
+        'Acct-TunnelConnection'  => '',
+        'Acct-TunnelPacketsLost' => '',
+        'Acct-Authentic'         => 'This attribute MAY be included in an Accounting-Request to indicate how the user was authenticated, whether by RADIUS, the NAS itself, or another remote authentication protocol.  Users who are delivered service without being authenticated SHOULD NOT generate Accounting records.',
     ],
 ];

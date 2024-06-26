@@ -33,6 +33,20 @@ enum Attribute: string
             self::CiscoAVPair       => lang('FreeRadius.attributeDescription.ciscoAVPair'),
             self::CiscoNASPort      => lang('FreeRadius.attributeDescription.ciscoNASPort'),
             self::CiscoFramedRoute  => lang('FreeRadius.attributeDescription.ciscoFramedRoute'),
+
+            self::AcctAuthentic      => lang('FreeRadius.attributeDescription.Acct-Authentic'),
+            self::AcctTerminateCause => lang('FreeRadius.attributeDescription.Acct-TerminateCause'),
+            self::AcctOutputOctets   => lang('FreeRadius.attributeDescription.Acct-OutputOctets'),
+            self::AcctInterval       => lang('FreeRadius.attributeDescription.Acct-Interval'),
+            self::AcctSessionId      => lang('FreeRadius.attributeDescription.Acct-SessionId'),
+            self::AcctUniqueId       => lang('FreeRadius.attributeDescription.Acct-UniqueId'),
+            self::AcctStartTime      => lang('FreeRadius.attributeDescription.Acct-StartTime'),
+            self::AcctUpdateTime     => lang('FreeRadius.attributeDescription.Acct-UpdateTime'),
+            self::AcctStopTime       => lang('FreeRadius.attributeDescription.Acct-StopTime'),
+            self::AcctSessionTime    => lang('FreeRadius.attributeDescription.Acct-SessionTime'),
+            self::NasPortId          => lang('FreeRadius.attributeDescription.NAS-PortId'),
+            self::NasPortType        => lang('FreeRadius.attributeDescription.Nas-PortType'),
+            self::AcctInputOctets    => lang('FreeRadius.attributeDescription.Acct-InputOctets'),
         };
     }
 
@@ -79,6 +93,19 @@ enum Attribute: string
     {
         return 65535;
     }
+    case AcctSessionId      = 'Acct-Session-Id';
+    case AcctUniqueId       = 'Acct-Unique-Id';
+    case NasPortId          = 'NAS-Port-Id';
+    case NasPortType        = 'NAS-Port-Type';
+    case AcctStartTime      = 'Acct-Start-Time';
+    case AcctUpdateTime     = 'Acct-Update-Time';
+    case AcctStopTime       = 'Acct-Stop-Time';
+    case AcctInterval       = 'Acct-Interval';
+    case AcctSessionTime    = 'Acct-Session-Time';
+    case AcctAuthentic      = 'Acct-Authentic';
+    case AcctInputOctets    = 'Acct-Input-Octets';
+    case AcctOutputOctets   = 'Acct-Output-Octets';
+    case AcctTerminateCause = 'Acct-Terminate-Cause';
 
     /**
      * Cleartext-Password is used to specify a user's password. This password is not encrypted and therefore should be protected.
