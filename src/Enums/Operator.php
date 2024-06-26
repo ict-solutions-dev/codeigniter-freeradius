@@ -15,6 +15,17 @@ enum Operator: string
         return $dropdownValues;
     }
 
+    public static function getValues(): array
+    {
+        $values = [];
+
+        foreach (self::cases() as $case) {
+            array_push($values,  $case->value);
+        }
+
+        return $values;
+    }
+
     /**
      * Sets the value of an attribute, only if there is no other item of the same attribute.
      * Not allowed as a check item for RADIUS protocol attributes.

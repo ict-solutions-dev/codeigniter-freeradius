@@ -36,6 +36,51 @@ enum Attribute: string
         };
     }
 
+    public static function getValues(): array{
+        return array_map(function($attr) {
+            return $attr->value;
+        }, Attribute::cases());;
+    }
+
+    public static function getServiceTypes(): array{
+        return [
+            'Login',
+            'Framed',
+            'Callback Login',
+            'Callback Framed',
+            'Outbound',
+            'Administrative',
+            'NAS Prompt',
+            'Authenticate Only',
+            ' Callback NAS Prompt',
+            'Call Check',
+            'Callback Administrative',
+        ];
+    }
+
+    public static function getFramedProtocols(): array
+    {
+        return [
+            'PPP',
+            'SLIP',
+            'AppleTalk Remote Access Protocol (ARAP)',
+            'Gandalf proprietary SingleLink/MultiLink protocol',
+            'Xylogics proprietary IPX/SLIP',
+            'X.75 Synchronous',
+        ];
+    }
+
+    public static function getFramedMtuMin(): int
+    {
+        return 64;
+    }
+
+    public static function getFramedMtuMax(): int
+    {
+        return 65535;
+    }
+
+
     /**
      * Cleartext-Password is used to specify a user's password. This password is not encrypted and therefore should be protected.
      */
@@ -95,4 +140,7 @@ enum Attribute: string
      * NAS-IP-Address indicates the identifying IP Address of the NAS which is requesting authentication of the user, and SHOULD be unique to the NAS within the scope of the RADIUS server. NAS-IP-Address is only used in Access-Request packets. Either NAS-IP-Address or NAS-Identifier MUST be present in an Access-Request packet. Note that NAS-IP-Address MUST NOT be used to select the shared secret used to authenticate the request. The source IP address of the Access-Request packet MUST be used to select the shared secret.
      */
     case nasIpAddress = 'NAS-IP-Address';
+
+    
+    case CiscoServiceInfo = 'Cisco-Service-Info';
 }
