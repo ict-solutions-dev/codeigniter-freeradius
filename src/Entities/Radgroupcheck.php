@@ -6,7 +6,6 @@ use CodeIgniter\Entity\Entity;
 
 class Radgroupcheck extends Entity
 {
-
     /**
      * @var array<string, string>
      */
@@ -18,4 +17,3 @@ class Radgroupcheck extends Entity
         'value'     => 'string',
     ];
 }
-
