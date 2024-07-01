@@ -165,7 +165,7 @@ enum Attribute: string
             self::DNSServerIPv6Address       => lang('FreeRadius.attribute.DNSServer-IPv6-Address'),
             self::ConnectInfo                => lang('FreeRadius.attribute.Connect-Info'),
             self::ConfigurationToken         => lang('FreeRadius.attribute.Configuration-Token'),
-            self::class                      => lang('FreeRadius.attribute.Class'),
+            self::_Class                     => lang('FreeRadius.attribute.Class'),
             self::ChargeableUserIdentity     => lang('FreeRadius.attribute.Chargeable-User-Identity'),
             self::CallingStationId           => lang('FreeRadius.attribute.Calling-Station-Id'),
             self::CalledStationId            => lang('FreeRadius.attribute.Called-Station-Id'),
@@ -477,7 +477,7 @@ enum Attribute: string
 
     case ConfigurationToken = 'Configuration-Token';
 
-    case Class = 'Class';
+    case _Class = 'Class';
 
     case ChargeableUserIdentity = 'Chargeable-User-Identity';
 
