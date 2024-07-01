@@ -23,7 +23,7 @@
         "codeigniter4/devkit": "^1.2.1",
         "codeigniter4/framework": "^4.4.6",
         "ergebnis/composer-normalize": "^2.42",
-        "phpunit/phpunit": "^9.6"
+        "phpunit/phpunit": "^9.6 || ^10.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
