@@ -21,32 +21,34 @@ enum Attribute: string
     public function toDescription(): string
     {
         return match ($this) {
-            self::NasIpAddress       => lang('FreeRadius.attributeDescription.nasIpAddress'),
-            self::CleartextPassword  => lang('FreeRadius.attributeDescription.cleartextPassword'),
-            self::FallThrough        => lang('FreeRadius.attributeDescription.fallThrough'),
-            self::SimultaneousUse    => lang('FreeRadius.attributeDescription.simultaneousUse'),
-            self::ServiceType        => lang('FreeRadius.attributeDescription.serviceType'),
-            self::FramedIPAddress    => lang('FreeRadius.attributeDescription.framedIPAddress'),
-            self::FramedIPNetmask    => lang('FreeRadius.attributeDescription.framedIPNetmask'),
-            self::FramedProtocol     => lang('FreeRadius.attributeDescription.framedProtocol'),
-            self::FramedMTU          => lang('FreeRadius.attributeDescription.framedMTU'),
-            self::CiscoAVPair        => lang('FreeRadius.attributeDescription.ciscoAVPair'),
-            self::CiscoNASPort       => lang('FreeRadius.attributeDescription.ciscoNASPort'),
-            self::CiscoFramedRoute   => lang('FreeRadius.attributeDescription.ciscoFramedRoute'),
-            self::AcctAuthentic      => lang('FreeRadius.attributeDescription.acctAuthentic'),
-            self::AcctTerminateCause => lang('FreeRadius.attributeDescription.acctTerminateCause'),
-            self::AcctOutputOctets   => lang('FreeRadius.attributeDescription.acctOutputOctets'),
-            self::AcctInterval       => lang('FreeRadius.attributeDescription.acctInterval'),
-            self::AcctSessionId      => lang('FreeRadius.attributeDescription.acctSessionId'),
-            self::AcctUniqueId       => lang('FreeRadius.attributeDescription.acctUniqueId'),
-            self::AcctStartTime      => lang('FreeRadius.attributeDescription.acctStartTime'),
-            self::AcctUpdateTime     => lang('FreeRadius.attributeDescription.acctUpdateTime'),
-            self::AcctStopTime       => lang('FreeRadius.attributeDescription.acctStopTime'),
-            self::AcctSessionTime    => lang('FreeRadius.attributeDescription.acctSessionTime'),
-            self::NasPortId          => lang('FreeRadius.attributeDescription.nasPortId'),
-            self::NasPortType        => lang('FreeRadius.attributeDescription.nasPortType'),
-            self::AcctInputOctets    => lang('FreeRadius.attributeDescription.acctInputOctets'),
-            self::CiscoServiceInfo   => lang('FreeRadius.attributeDescription.ciscoServiceInfo'),
+            self::NasIpAddress         => lang('FreeRadius.attributeDescription.nasIpAddress'),
+            self::CleartextPassword    => lang('FreeRadius.attributeDescription.cleartextPassword'),
+            self::FallThrough          => lang('FreeRadius.attributeDescription.fallThrough'),
+            self::SimultaneousUse      => lang('FreeRadius.attributeDescription.simultaneousUse'),
+            self::ServiceType          => lang('FreeRadius.attributeDescription.serviceType'),
+            self::FramedIPAddress      => lang('FreeRadius.attributeDescription.framedIPAddress'),
+            self::FramedIPNetmask      => lang('FreeRadius.attributeDescription.framedIPNetmask'),
+            self::FramedProtocol       => lang('FreeRadius.attributeDescription.framedProtocol'),
+            self::FramedMTU            => lang('FreeRadius.attributeDescription.framedMTU'),
+            self::CiscoAVPair          => lang('FreeRadius.attributeDescription.ciscoAVPair'),
+            self::CiscoNASPort         => lang('FreeRadius.attributeDescription.ciscoNASPort'),
+            self::CiscoFramedRoute     => lang('FreeRadius.attributeDescription.ciscoFramedRoute'),
+            self::AcctAuthentic        => lang('FreeRadius.attributeDescription.acctAuthentic'),
+            self::AcctTerminateCause   => lang('FreeRadius.attributeDescription.acctTerminateCause'),
+            self::AcctOutputOctets     => lang('FreeRadius.attributeDescription.acctOutputOctets'),
+            self::AcctInterval         => lang('FreeRadius.attributeDescription.acctInterval'),
+            self::AcctSessionId        => lang('FreeRadius.attributeDescription.acctSessionId'),
+            self::AcctUniqueId         => lang('FreeRadius.attributeDescription.acctUniqueId'),
+            self::AcctStartTime        => lang('FreeRadius.attributeDescription.acctStartTime'),
+            self::AcctUpdateTime       => lang('FreeRadius.attributeDescription.acctUpdateTime'),
+            self::AcctStopTime         => lang('FreeRadius.attributeDescription.acctStopTime'),
+            self::AcctSessionTime      => lang('FreeRadius.attributeDescription.acctSessionTime'),
+            self::NasPortId            => lang('FreeRadius.attributeDescription.nasPortId'),
+            self::NasPortType          => lang('FreeRadius.attributeDescription.nasPortType'),
+            self::AcctInputOctets      => lang('FreeRadius.attributeDescription.acctInputOctets'),
+            self::CiscoServiceInfo     => lang('FreeRadius.attributeDescription.ciscoServiceInfo'),
+            self::MSPrimaryDNSServer   => lang('FreeRadius.attributeDescription.msPrimaryDNSServer'),
+            self::MSSecondaryDNSServer => lang('FreeRadius.attributeDescription.msSecondaryDNSServer'),
         };
     }
 
@@ -184,4 +186,16 @@ enum Attribute: string
      * More information:
      */
     case NasIpAddress = 'NAS-IP-Address';
+
+    /**
+     * The MS-Primary-DNS-Server Attribute is used to indicate the address of the primary Domain Name Server (DNS) [16, 17] server to be used by the PPP peer.
+     * More information: https://www.rfc-editor.org/rfc/rfc2548
+     */
+    case MSPrimaryDNSServer = 'MS-Primary-DNS-Server';
+
+    /**
+     * The MS-Secondary-DNS-Server Attribute is used to indicate the address of the secondary DNS server to be used by the PPP peer.
+     * More information: https://www.rfc-editor.org/rfc/rfc2548
+     */
+    case MSSecondaryDNSServer = 'MS-Secondary-DNS-Server';
 }

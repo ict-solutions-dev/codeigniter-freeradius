@@ -41,5 +41,7 @@ return [
         'acctTerminateCause'    => 'This attribute indicates how the session was terminated, and can only be present in Accounting-Request records where the Acct-Status-Type is set to Stop.',
         'acctTunnelConnection'  => 'TODO',
         'acctTunnelPacketsLost' => 'TODO',
+        'msPrimaryDnsServer'    => 'The MS-Primary-DNS-Server Attribute is used to indicate the address of the primary Domain Name Server (DNS) server to be used by the PPP peer.  It MAY be included in both Access-Accept and Accounting-Request packets.',
+        'msSecondaryDnsServer'  => 'The MS-Secondary-DNS-Server Attribute is used to indicate the address of the secondary DNS server to be used by the PPP peer. It MAY be included in both Access-Accept and Accounting-Request packets.',
     ],
 ];
