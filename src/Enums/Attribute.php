@@ -229,6 +229,9 @@ enum Attribute: string
     {
         return 65535;
     }
+
+    case MSCHAPMPPEKeys = 'MS-CHAP-MPPE-Keys';
+
     case UserPassword = 'User-Password';
 
     case UserName = 'User-Name';
@@ -322,8 +325,6 @@ enum Attribute: string
     case MSCHAPLMEncPW = 'MS-CHAP-LM-Enc-PW';
 
     case MSAcctEAPType = 'MS-Acct-EAP-Type';
-
-    case MSHAPMPPEKeys = 'MS-CHAP-MPPE-Keys';
 
     case MSCHAPNTEncPW = 'MS-CHAP-NT-Enc-PW';
 
