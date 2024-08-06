@@ -140,6 +140,7 @@ class CreateRadiusTables extends Migration
         // Table structure for table 'radusergroup'
         if (! $this->db->tableExists($this->tables['radusergroup'])) {
             $this->forge->addField([
+                'id'        => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
                 'username'  => ['type' => 'VARCHAR', 'constraint' => 64, 'default' => ''],
                 'groupname' => ['type' => 'VARCHAR', 'constraint' => 64, 'default' => ''],
                 'priority'  => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'default' => 1],
