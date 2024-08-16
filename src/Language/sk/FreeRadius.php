@@ -5,7 +5,7 @@ return [
         'accessAccept' => 'Pristup schválený',
         'accessReject' => 'Pristup zamietnutý',
     ],
-    'atrributeDescription' => [
+    'attributeDescription' => [
         'NASIpAddress'      => 'Tento atribút označuje identifikačnú IP adresu NAS, ktorá žiada autentifikáciu používateľa, a MALA BY byť jedinečná pre NAS v rámci RADIUS servera. NAS-IP-Address sa používa iba v Access-Request paketo. Buď NAS-IP-Address, alebo NAS-Identifier MUSÍ byť prítomný v Access-Request pakete. Upozorňujeme, že NAS-IP-Address NESMIE byť použitá na výber zdieľaného tajomstva používaného na autentifikáciu požiadavky. Na výber zdieľaného tajomstva MUSÍ byť použitá zdrojová IP adresa Access-Request paketu.',
         'cleartextPassword' => 'Špecifikuje používateľské heslo v čistej forme. Tento atribút sa zvyčajne používa počas autentifikačných procesov na overenie identity používateľa.',
         'fallThrough'       => 'Atribút Fall-Through by sa mal používať v zozname odpovedí. Ak je jeho hodnota nastavená na Áno v konkrétnom zázname, znamená to, že Radius bude pokračovať v hľadaní ďalších záznamov, aj keď súčasný záznam zodpovedá požiadavke. Môže sa použiť na poskytovanie predvolených hodnôt pre niekoľko profilov',
