@@ -12,9 +12,9 @@ class Registrar
             'radius' => [
                 'DSN'          => '',
                 'hostname'     => 'localhost',
-                'username'     => '',
-                'password'     => '',
-                'database'     => '',
+                'username'     => 'radius',
+                'password'     => 'radius',
+                'database'     => 'radius',
                 'DBDriver'     => 'MySQLi',
                 'DBPrefix'     => '',
                 'pConnect'     => false,
