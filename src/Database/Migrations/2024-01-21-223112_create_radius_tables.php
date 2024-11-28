@@ -145,6 +145,7 @@ class CreateRadiusTables extends Migration
                 'groupname' => ['type' => 'VARCHAR', 'constraint' => 64, 'default' => ''],
                 'priority'  => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'default' => 1],
             ]);
+            $this->forge->addPrimaryKey('id');
             $this->forge->addKey('username');
             $this->forge->createTable($this->tables['radusergroup']);
         }
