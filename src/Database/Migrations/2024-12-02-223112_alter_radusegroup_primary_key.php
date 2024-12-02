@@ -28,7 +28,6 @@ class AlterRadusergroupPrimaryKey extends Migration
 
     public function up(): void
     {
-        // Table structure for table 'radusergroup'
         if ($this->db->tableExists($this->tables['radusergroup'])) {
             $fields           = $this->db->getFieldData($this->tables['radusergroup']);
             $primaryKeyExists = false;
