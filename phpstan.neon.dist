@@ -8,7 +8,6 @@ parameters:
 	excludePaths:
 	ignoreErrors:
 	- '#Call to an undefined method CodeIgniter\\Database\\ConnectionInterface::tableExists\(\)#'
-	- '#Call to an undefined method CodeIgniter\\Database\\ConnectionInterface::getFieldData\(\)#'
 	universalObjectCratesClasses:
 		- CodeIgniter\Entity
 		- CodeIgniter\Entity\Entity
