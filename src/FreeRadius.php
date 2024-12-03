@@ -90,7 +90,6 @@ class FreeRadius
             'address'           => $userInfo->address,
             'city'              => $userInfo->city,
             'netbox_address_id' => $userInfo->netbox_address_id,
-            'notes'             => $userInfo->notes,
             'created_by'        => null,
         ]) !== false;
     }

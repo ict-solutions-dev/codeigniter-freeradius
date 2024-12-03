@@ -21,7 +21,6 @@ class UserinfoModel extends BaseModel
         'address',
         'city',
         'netbox_address_id',
-        'notes',
         'created_by',
         'updated_by',
     ];
