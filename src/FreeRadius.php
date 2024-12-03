@@ -117,7 +117,7 @@ class FreeRadius
 
         // Get all used IPs
         $usedIps = $radreplyModel->findAll();
-        $usedIps = array_map(static fn ($row) => ip2long($row['value']), $usedIps);
+        $usedIps = array_map(static fn ($row) => ip2long($row->value), $usedIps);
 
         // Generate all possible IPs within given range
         $allIps = range($ipStart, $ipEnd);
@@ -127,6 +127,32 @@ class FreeRadius
 
         // Generate random IP among free ones
         $randomIp = long2ip($freeIps[array_rand($freeIps)]);
+
+        return $randomIp;
+    }
+
+    public function generateNexFreeIpAddress(): string
+    {
+        helper('setting');
+
+        $radreplyModel = model(RadreplyModel::class);
+
+        // Define IP range
+        $ipStart = ip2long(setting('FreeRadius.ipStart'));
+        $ipEnd   = ip2long(setting('FreeRadius.ipEnd'));
+
+        // Get all used IPs
+        $usedIps = $radreplyModel->findAll();
+        $usedIps = array_map(static fn ($row) => ip2long($row->value), $usedIps);
+
+        // Generate all possible IPs within given range
+        $allIps = range($ipStart, $ipEnd);
+
+        // Subtract the used IPs, leave only free IPs
+        $freeIps = array_diff($allIps, $usedIps);
+
+        // Generate first free IP among free ones
+        $randomIp = long2ip(reset($freeIps));
 
         return $randomIp;
     }
