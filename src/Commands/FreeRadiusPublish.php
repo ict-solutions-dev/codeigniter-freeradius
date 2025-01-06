@@ -31,6 +31,7 @@ class FreeRadiusPublish extends BaseCommand
 
         if (file_exists($configPath)) {
             CLI::write(CLI::color('  Skipped: ', 'yellow') . 'FreeRadius config file already exists.');
+
             return;
         }
 
@@ -48,6 +49,7 @@ class FreeRadiusPublish extends BaseCommand
             }
         } catch (Throwable $e) {
             $this->showError($e);
+
             return;
         }
     }
@@ -59,14 +61,16 @@ class FreeRadiusPublish extends BaseCommand
         try {
             $contents = file_get_contents($databaseConfig);
 
-            if (str_contains($contents, "radius =")) {
+            if (str_contains($contents, 'radius =')) {
                 CLI::write(CLI::color('  Skipped: ', 'yellow') . 'Radius database group already exists.');
+
                 return;
             }
 
             $constructPos = strpos($contents, 'public function __construct');
             if ($constructPos === false) {
                 CLI::write(CLI::color('  Error: ', 'red') . 'Could not find __construct() in Database.php');
+
                 return;
             }
 
@@ -104,6 +108,7 @@ class FreeRadiusPublish extends BaseCommand
             CLI::write(CLI::color('  Added: ', 'green') . 'Radius database group to Database config.');
         } catch (Throwable $e) {
             $this->showError($e);
+
             return;
         }
     }
