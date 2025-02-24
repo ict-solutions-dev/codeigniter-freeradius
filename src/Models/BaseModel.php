@@ -13,13 +13,13 @@ class BaseModel extends Model
 
     public function __construct()
     {
-        $this->tables  = setting('FreeRadius.tables');
+        $this->tables = setting('FreeRadius.tables');
 
         if (ENVIRONMENT === 'development') {
             $this->DBGroup = setting('FreeRadius.database');
         }
 
-        $this->db      = db_connect(setting('FreeRadius.database'));
+        $this->db = db_connect(setting('FreeRadius.database'));
         parent::__construct();
     }
 }
