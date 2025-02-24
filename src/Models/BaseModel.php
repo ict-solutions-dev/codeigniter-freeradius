@@ -16,7 +16,7 @@ class BaseModel extends Model
         $this->tables = setting('FreeRadius.tables');
 
         if (ENVIRONMENT === 'development') {
-            $this->DBGroup = setting('FreeRadius.database');
+            $this->DBGroup = setting('FreeRadius.DBGroup');
         }
 
         $this->db = db_connect(setting('FreeRadius.database'));
