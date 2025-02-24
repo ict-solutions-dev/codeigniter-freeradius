@@ -7,7 +7,6 @@ namespace IctSolutions\CodeIgniterFreeRadius\Database\Migrations;
 use CodeIgniter\Database\Forge;
 use CodeIgniter\Database\Migration;
 use CodeIgniter\Database\RawSql;
-use IctSolutions\CodeIgniterFreeRadius\Config\FreeRadius;
 
 class CreateRadiusTables extends Migration
 {
@@ -16,16 +15,12 @@ class CreateRadiusTables extends Migration
 
     public function __construct(?Forge $forge = null)
     {
-        /** @var FreeRadius $freeRadiusConfig */
-        $freeRadiusConfig = config('FreeRadius');
-
-        if ($freeRadiusConfig->DBGroup !== null) {
-            $this->DBGroup = $freeRadiusConfig->DBGroup;
-        }
+        $this->DBGroup = setting('FreeRadius.DBGroup');
+        $this->tables  = setting('FreeRadius.tables');
+        $this->db      = db_connect(setting('FreeRadius.database'));
 
         parent::__construct($forge);
 
-        $this->tables     = $freeRadiusConfig->tables;
         $this->attributes = ($this->db->getPlatform() === 'MySQLi') ? ['ENGINE' => 'InnoDB'] : [];
     }
 

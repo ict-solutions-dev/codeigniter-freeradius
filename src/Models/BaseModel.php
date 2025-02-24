@@ -5,26 +5,17 @@ declare(strict_types=1);
 namespace IctSolutions\CodeIgniterFreeRadius\Models;
 
 use CodeIgniter\Model;
-use IctSolutions\CodeIgniterFreeRadius\Config\FreeRadius;
 
 class BaseModel extends Model
 {
-    protected array $tables;
-    protected FreeRadius $freeRadiusConfig;
+    protected array $tables = [];
+    protected $db;
 
     public function __construct()
     {
-        $this->freeRadiusConfig = config(FreeRadius::class);
-
-        if ($this->freeRadiusConfig->DBGroup !== null) {
-            $this->DBGroup = $this->freeRadiusConfig->DBGroup;
-        }
-
+        $this->tables  = setting('FreeRadius.tables');
+        $this->DBGroup = setting('FreeRadius.DBGroup');
+        $this->db      = db_connect(setting('FreeRadius.database'));
         parent::__construct();
-    }
-
-    protected function initialize(): void
-    {
-        $this->tables = $this->freeRadiusConfig->tables;
     }
 }
