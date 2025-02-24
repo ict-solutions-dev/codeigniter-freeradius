@@ -14,7 +14,6 @@ class BaseModel extends Model
     public function __construct()
     {
         $this->tables  = setting('FreeRadius.tables');
-        $this->DBGroup = setting('FreeRadius.DBGroup');
         $this->db      = db_connect(setting('FreeRadius.database'));
         parent::__construct();
     }
