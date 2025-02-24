@@ -15,8 +15,13 @@ class CreateRadiusTables extends Migration
 
     public function __construct(?Forge $forge = null)
     {
-        $this->tables  = setting('FreeRadius.tables');
-        $this->db      = db_connect(setting('FreeRadius.database'));
+        $this->tables = setting('FreeRadius.tables');
+
+        if (ENVIRONMENT === 'development') {
+            $this->DBGroup = setting('FreeRadius.database');
+        }
+
+        $this->db = db_connect(setting('FreeRadius.database'));
 
         parent::__construct($forge);
 

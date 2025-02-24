@@ -108,6 +108,25 @@ enum Attribute: string
     case MSSecondaryDNSServer = 'MS-Secondary-DNS-Server';
 
     /**
+     * The Mikrotik-Group Attribute is used to assign a user to a specific group in Mikrotik RouterOS.
+     * More information: https://wiki.mikrotik.com/wiki/Manual:RADIUS_Client/Group_Handling
+     */
+    case MikrotikGroup = 'Mikrotik-Group';
+
+    // The Fortinet-Class Attribute is used to assign a user to a specific class in FortiGate.
+    case FortinetClass = 'Class';
+
+    /**
+     * The Fortinet-Group-Name Attribute is used to assign a user to a specific group in FortiGate.
+     */
+    case FortinetGroupName = 'Fortinet-Group-Name';
+
+    /**
+     * The Fortinet-Access-Profile Attribute defines access profile settings for the user in FortiGate.
+     */
+    case FortinetAccessProfile = 'Fortinet-Access-Profile';
+
+    /**
      * Returns an array of dropdown values.
      */
     public static function getDropdownValues(): array
@@ -124,34 +143,38 @@ enum Attribute: string
     public function toDescription(): string
     {
         return match ($this) {
-            self::NasIpAddress         => lang('FreeRadius.attributeDescription.nasIpAddress'),
-            self::CleartextPassword    => lang('FreeRadius.attributeDescription.cleartextPassword'),
-            self::FallThrough          => lang('FreeRadius.attributeDescription.fallThrough'),
-            self::SimultaneousUse      => lang('FreeRadius.attributeDescription.simultaneousUse'),
-            self::ServiceType          => lang('FreeRadius.attributeDescription.serviceType'),
-            self::FramedIPAddress      => lang('FreeRadius.attributeDescription.framedIPAddress'),
-            self::FramedIPNetmask      => lang('FreeRadius.attributeDescription.framedIPNetmask'),
-            self::FramedProtocol       => lang('FreeRadius.attributeDescription.framedProtocol'),
-            self::FramedMTU            => lang('FreeRadius.attributeDescription.framedMTU'),
-            self::CiscoAVPair          => lang('FreeRadius.attributeDescription.ciscoAVPair'),
-            self::CiscoNASPort         => lang('FreeRadius.attributeDescription.ciscoNASPort'),
-            self::CiscoFramedRoute     => lang('FreeRadius.attributeDescription.ciscoFramedRoute'),
-            self::AcctAuthentic        => lang('FreeRadius.attributeDescription.acctAuthentic'),
-            self::AcctTerminateCause   => lang('FreeRadius.attributeDescription.acctTerminateCause'),
-            self::AcctOutputOctets     => lang('FreeRadius.attributeDescription.acctOutputOctets'),
-            self::AcctInterval         => lang('FreeRadius.attributeDescription.acctInterval'),
-            self::AcctSessionId        => lang('FreeRadius.attributeDescription.acctSessionId'),
-            self::AcctUniqueId         => lang('FreeRadius.attributeDescription.acctUniqueId'),
-            self::AcctStartTime        => lang('FreeRadius.attributeDescription.acctStartTime'),
-            self::AcctUpdateTime       => lang('FreeRadius.attributeDescription.acctUpdateTime'),
-            self::AcctStopTime         => lang('FreeRadius.attributeDescription.acctStopTime'),
-            self::AcctSessionTime      => lang('FreeRadius.attributeDescription.acctSessionTime'),
-            self::NasPortId            => lang('FreeRadius.attributeDescription.nasPortId'),
-            self::NasPortType          => lang('FreeRadius.attributeDescription.nasPortType'),
-            self::AcctInputOctets      => lang('FreeRadius.attributeDescription.acctInputOctets'),
-            self::CiscoServiceInfo     => lang('FreeRadius.attributeDescription.ciscoServiceInfo'),
-            self::MSPrimaryDNSServer   => lang('FreeRadius.attributeDescription.msPrimaryDNSServer'),
-            self::MSSecondaryDNSServer => lang('FreeRadius.attributeDescription.msSecondaryDNSServer'),
+            self::NasIpAddress          => lang('FreeRadius.attributeDescription.nasIpAddress'),
+            self::CleartextPassword     => lang('FreeRadius.attributeDescription.cleartextPassword'),
+            self::FallThrough           => lang('FreeRadius.attributeDescription.fallThrough'),
+            self::SimultaneousUse       => lang('FreeRadius.attributeDescription.simultaneousUse'),
+            self::ServiceType           => lang('FreeRadius.attributeDescription.serviceType'),
+            self::FramedIPAddress       => lang('FreeRadius.attributeDescription.framedIPAddress'),
+            self::FramedIPNetmask       => lang('FreeRadius.attributeDescription.framedIPNetmask'),
+            self::FramedProtocol        => lang('FreeRadius.attributeDescription.framedProtocol'),
+            self::FramedMTU             => lang('FreeRadius.attributeDescription.framedMTU'),
+            self::CiscoAVPair           => lang('FreeRadius.attributeDescription.ciscoAVPair'),
+            self::CiscoNASPort          => lang('FreeRadius.attributeDescription.ciscoNASPort'),
+            self::CiscoFramedRoute      => lang('FreeRadius.attributeDescription.ciscoFramedRoute'),
+            self::AcctAuthentic         => lang('FreeRadius.attributeDescription.acctAuthentic'),
+            self::AcctTerminateCause    => lang('FreeRadius.attributeDescription.acctTerminateCause'),
+            self::AcctOutputOctets      => lang('FreeRadius.attributeDescription.acctOutputOctets'),
+            self::AcctInterval          => lang('FreeRadius.attributeDescription.acctInterval'),
+            self::AcctSessionId         => lang('FreeRadius.attributeDescription.acctSessionId'),
+            self::AcctUniqueId          => lang('FreeRadius.attributeDescription.acctUniqueId'),
+            self::AcctStartTime         => lang('FreeRadius.attributeDescription.acctStartTime'),
+            self::AcctUpdateTime        => lang('FreeRadius.attributeDescription.acctUpdateTime'),
+            self::AcctStopTime          => lang('FreeRadius.attributeDescription.acctStopTime'),
+            self::AcctSessionTime       => lang('FreeRadius.attributeDescription.acctSessionTime'),
+            self::NasPortId             => lang('FreeRadius.attributeDescription.nasPortId'),
+            self::NasPortType           => lang('FreeRadius.attributeDescription.nasPortType'),
+            self::AcctInputOctets       => lang('FreeRadius.attributeDescription.acctInputOctets'),
+            self::CiscoServiceInfo      => lang('FreeRadius.attributeDescription.ciscoServiceInfo'),
+            self::MSPrimaryDNSServer    => lang('FreeRadius.attributeDescription.msPrimaryDNSServer'),
+            self::MSSecondaryDNSServer  => lang('FreeRadius.attributeDescription.msSecondaryDNSServer'),
+            self::MikrotikGroup         => lang('FreeRadius.attributeDescription.mikrotikGroup'),
+            self::FortinetClass         => lang('FreeRadius.attributeDescription.fortinetClass'),
+            self::FortinetGroupName     => lang('FreeRadius.attributeDescription.fortinetGroupName'),
+            self::FortinetAccessProfile => lang('FreeRadius.attributeDescription.fortinetAccessProfile'),
         };
     }
 
