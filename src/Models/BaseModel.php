@@ -16,12 +16,8 @@ class BaseModel extends Model
 
     public function __construct(?ConnectionInterface $db = null, ?ValidationInterface $validation = null)
     {
-        /**
-         * @var BaseConnection|null $db
-         */
         $db ??= Database::connect(setting('FreeRadius.database'));
 
-        $this->db     = $db;
         $this->tables = setting('FreeRadius.tables');
 
         parent::__construct($db, $validation);
