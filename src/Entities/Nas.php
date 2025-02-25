@@ -7,15 +7,15 @@ use CodeIgniter\Entity\Entity;
 /**
  * Class Nas
  *
+ * @property string $community
+ * @property string $description
  * @property int    $id
  * @property string $nasname
- * @property string $shortname
- * @property string $type
  * @property int    $ports
  * @property string $secret
  * @property string $server
- * @property string $community
- * @property string $description
+ * @property string $shortname
+ * @property string $type
  */
 class Nas extends Entity
 {
