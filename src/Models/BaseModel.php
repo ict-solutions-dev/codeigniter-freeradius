@@ -21,7 +21,8 @@ class BaseModel extends Model
          */
         $db ??= Database::connect(setting('FreeRadius.database'));
 
-        $this->db = $db;
+        $this->db     = $db;
+        $this->tables = setting('FreeRadius.tables');
 
         parent::__construct($db, $validation);
     }
