@@ -4,22 +4,25 @@ declare(strict_types=1);
 
 namespace IctSolutions\CodeIgniterFreeRadius\Models;
 
+use CodeIgniter\Database\ConnectionInterface;
 use CodeIgniter\Model;
+use CodeIgniter\Validation\ValidationInterface;
+use Config\Database;
 
 class BaseModel extends Model
 {
     protected array $tables = [];
     protected $db;
 
-    public function __construct()
+    public function __construct(?ConnectionInterface $db = null, ?ValidationInterface $validation = null)
     {
-        $this->tables = setting('FreeRadius.tables');
+        /**
+         * @var BaseConnection|null $db
+         */
+        $db ??= Database::connect(setting('FreeRadius.database'));
 
-        if (ENVIRONMENT === 'development') {
-            $this->DBGroup = setting('FreeRadius.DBGroup');
-        }
+        $this->db = $db;
 
-        $this->db = db_connect(setting('FreeRadius.database'));
-        parent::__construct();
+        parent::__construct($db, $validation);
     }
 }
